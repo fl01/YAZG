@@ -279,6 +279,11 @@ Prefab:
       propertyPath: m_WhatIsGround.m_Bits
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 114228212751689944, guid: 87a2357765801c34292d6718d8b4d770,
+        type: 2}
+      propertyPath: facingRight
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114728020841943056, guid: 87a2357765801c34292d6718d8b4d770, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 87a2357765801c34292d6718d8b4d770, type: 2}
@@ -340,7 +345,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8.65
+  orthographic size: 6.63
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
