@@ -1,4 +1,6 @@
-﻿public enum BodyPartStatus
+﻿using System.ComponentModel;
+
+public enum BodyPartStatus
 {
     Normal,
     Injured,

@@ -31,21 +31,7 @@ public class BodyPartCollisionDamage : MonoBehaviour
         var damageComponent = collision.gameObject.GetComponent<BodyPartDamage>();
         if (damageComponent != null)
         {
-            var status = _player.TakeDamage(bodyType, damageComponent.damage);
-            // TODO : remove this shit, it is used just to see body part status as a text
-            var statusText = GetComponent<TextMesh>();
-            switch (bodyType)
-            {
-                case BodyPartType.Head:
-                    statusText.text = bodyType.ToString() + ":" + status + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine;
-                    break;
-                case BodyPartType.Body:
-                    statusText.text = bodyType.ToString() + ":" + status + "__________________";
-                    break;
-                case BodyPartType.Legs:
-                    statusText.text = Environment.NewLine + Environment.NewLine + "__________________" + bodyType.ToString() + ":" + status;
-                    break;
-            }
+            _player.TakeDamage(bodyType, damageComponent.damage);
         }
     }
 }

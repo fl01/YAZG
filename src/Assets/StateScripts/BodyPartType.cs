@@ -2,5 +2,6 @@
 {
     Head,
     Body,
+    Hands,
     Legs
 }
