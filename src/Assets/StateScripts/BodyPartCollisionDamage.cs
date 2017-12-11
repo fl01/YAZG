@@ -1,8 +1,11 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class BodyPartCollisionDamage : MonoBehaviour
 {
     private PlayerState _player;
+
+    public BodyPartType bodyType;
 
     void Awake()
     {
@@ -28,18 +31,19 @@ public class BodyPartCollisionDamage : MonoBehaviour
         var damageComponent = collision.gameObject.GetComponent<BodyPartDamage>();
         if (damageComponent != null)
         {
-            _player.Head.TakeDamage(damageComponent.damage);
-            switch (_player.Head.Status)
+            var status = _player.TakeDamage(bodyType, damageComponent.damage);
+            // TODO : remove this shit, it is used just to see body part status as a text
+            var statusText = GetComponent<TextMesh>();
+            switch (bodyType)
             {
-                case BodyPartStatus.Destroyed:
-                    _player.OnBodyPartDestroyed(_player.Head);
+                case BodyPartType.Head:
+                    statusText.text = bodyType.ToString() + ":" + status + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine;
                     break;
-                case BodyPartStatus.Injured:
-                    _player.OnBodyPartDamaged(_player.Head);
+                case BodyPartType.Body:
+                    statusText.text = bodyType.ToString() + ":" + status + "__________________";
                     break;
-                case BodyPartStatus.Normal:
-                default:
-                    Debug.LogWarning("DamageObject dealt no damage!!!");
+                case BodyPartType.Legs:
+                    statusText.text = Environment.NewLine + Environment.NewLine + "__________________" + bodyType.ToString() + ":" + status;
                     break;
             }
         }

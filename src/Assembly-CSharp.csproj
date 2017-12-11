@@ -66,6 +66,7 @@
      <Compile Include="Assets\StateScripts\BodyPartCollisionDamage.cs" />
      <Compile Include="Assets\StateScripts\BodyPartDamage.cs" />
      <Compile Include="Assets\StateScripts\BodyPartStatus.cs" />
+     <Compile Include="Assets\StateScripts\BodyPartType.cs" />
      <Compile Include="Assets\StateScripts\HumanBodyPart.cs" />
      <Compile Include="Assets\StateScripts\Player\PlayerState.cs" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
