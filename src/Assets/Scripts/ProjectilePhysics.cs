@@ -7,7 +7,7 @@ public class ProjectilePhysics : MonoBehaviour {
     #region Variables
 
     private Rigidbody2D _bullet;
-    public float Shotspeed = 10;
+    public float Shotspeed = 1000;
     public int Damage = 1;
 
     private Vector3 _debugStartPos;

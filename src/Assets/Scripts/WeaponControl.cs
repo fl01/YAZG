@@ -16,6 +16,7 @@ public class WeaponControl : MonoBehaviour
     private Weapon _weapon;
     private WeaponMastery _weaponMastery;
 
+    public int Damage = 1;
     #endregion
 
     void Awake()
@@ -53,15 +54,12 @@ public class WeaponControl : MonoBehaviour
     private void InitBullet()
     {
         var bullet = Instantiate(ShotPrefab, transform.Find("Muzzle").position, transform.Find("Muzzle").rotation);
-        bullet.gameObject.GetComponent<ProjectilePhysics>().Damage = _weapon.Damage;
+        bullet.gameObject.GetComponent<ProjectilePhysics>().Damage = Damage;
 
         var facingRight = GameObject.Find("MainPlayer").GetComponent<MainCharacterMovementControl>().facingRight;
         var xSpeed = bullet.GetComponent<ProjectilePhysics>().Shotspeed;
         var yDiff = (transform.Find("Muzzle").position.y - transform.Find("Bore").position.y) * xSpeed;
-        //var yDiff = transform.Find("Muzzle").rotation.z * xSpeed;
 
-        xSpeed = facingRight ? xSpeed : xSpeed * -1;
-
-        bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(xSpeed, (float)yDiff);
+        bullet.GetComponent<Rigidbody2D>().AddForce((transform.Find("Muzzle").position - transform.Find("Bore").position) * xSpeed);
     }
 }
