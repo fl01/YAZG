@@ -2,6 +2,7 @@
 {
     private int _currentHp;
     private int _maxHp;
+    public BodyPartType PartType { get; private set; }
 
     public string Name { get; set; }
 
@@ -24,9 +25,10 @@
         }
     }
 
-    public HumanBodyPart(int maxHp, string name)
+    public HumanBodyPart(int maxHp, BodyPartType type)
     {
         _maxHp = _currentHp = maxHp;
+        PartType = type;
     }
 
     public void TakeDamage(int damage = 1)
