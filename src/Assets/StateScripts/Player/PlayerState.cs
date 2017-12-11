@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerState : MonoBehaviour
 {
@@ -8,11 +7,23 @@ public class PlayerState : MonoBehaviour
     private HumanBodyPart _legs;
     private HumanBodyPart _hands;
     private HUD _hud;
-    public GameObject GM;
+    private WeaponMastery _mastery = new WeaponMastery();
+    private Weapon _activeWeapon = new Weapon() { Damage = 3, RateOfFire = 0.25f };
 
+    public GameObject GM;
     public int maxHeadHp = 2;
     public int maxBodyHp = 2;
     public int maxLegsHp = 2;
+
+    public WeaponMastery Mastery
+    {
+        get { return _mastery; }
+    }
+
+    public Weapon ActiveWeapon
+    {
+        get { return _activeWeapon; }
+    }
 
     void Awake()
     {
@@ -21,6 +32,8 @@ public class PlayerState : MonoBehaviour
         _legs = new HumanBodyPart(maxLegsHp, "legs");
         _hands = new HumanBodyPart(maxLegsHp, "hands");
         _hud = GM.GetComponent<HUD>();
+
+        _mastery.IncreaseMastery(WeaponType.Shotgun, 0.3f);
     }
 
     // Use this for initialization

@@ -63,8 +63,7 @@
      <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
      <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
      <Compile Include="Assets\Scripts\ProjectilePhysics.cs" />
-     <Compile Include="Assets\Scripts\Weapon.cs" />
-     <Compile Include="Assets\ShotgunRotation.cs" />
+     <Compile Include="Assets\Scripts\WeaponControl.cs" />
      <Compile Include="Assets\SpamArrow.cs" />
      <Compile Include="Assets\StateScripts\BodyPartCollisionDamage.cs" />
      <Compile Include="Assets\StateScripts\BodyPartDamage.cs" />
@@ -72,6 +71,10 @@
      <Compile Include="Assets\StateScripts\BodyPartType.cs" />
      <Compile Include="Assets\StateScripts\HumanBodyPart.cs" />
      <Compile Include="Assets\StateScripts\Player\PlayerState.cs" />
+     <Compile Include="Assets\StateScripts\Player\WeaponMastery.cs" />
+     <Compile Include="Assets\Weapon.cs" />
+     <Compile Include="Assets\WeaponRotation.cs" />
+     <Compile Include="Assets\WeaponType.cs" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />
      <None Include="Assets\Standard Assets\Prototyping\Shaders\WorldCoordDiffuse.shader" />

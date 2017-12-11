@@ -1,14 +1,21 @@
 ﻿using UnityEngine;
 using UnityStandardAssets._2D;
 
-public class ShotgunRotation : MonoBehaviour
+public class WeaponRotation : MonoBehaviour
 {
     public int maxRotation = 55;
+    public int rotationSpeed = 1;
+
     private MainCharacterMovementControl _mainCharacterMovement;
+    private Weapon _weapon;
+    private WeaponMastery _weaponMastery;
 
     void Awake()
     {
-        _mainCharacterMovement = transform.GetComponentInParent<MainCharacterMovementControl>();
+        _mainCharacterMovement = GetComponentInParent<MainCharacterMovementControl>();
+        var state = GetComponentInParent<PlayerState>();
+        _weapon = state.ActiveWeapon;
+        _weaponMastery = state.Mastery;
         if (_mainCharacterMovement == null)
         {
             Debug.LogError("Character movement is missing");
@@ -45,7 +52,7 @@ public class ShotgunRotation : MonoBehaviour
                 rotationZ = maxRotation;
             }
 
-            transform.rotation = Quaternion.Euler(0f, 0f, rotationZ);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0f, 0f, rotationZ), rotationSpeed * _weaponMastery[_weapon.WeaponType]);
         }
     }
 }

@@ -27,7 +27,7 @@ namespace UnityStandardAssets._2D
 
             if (Input.GetButton("Fire1"))
             {
-                transform.Find("PlayerWeapon").GetComponent<Weapon>().Shoot();
+                transform.Find("PlayerWeapon").GetComponent<WeaponControl>().Shoot();
             }                
         }
 
