@@ -27,10 +27,10 @@ public class PlayerState : MonoBehaviour
 
     void Awake()
     {
-        _head = new HumanBodyPart(maxHeadHp, "head");
-        _body = new HumanBodyPart(maxBodyHp, "body");
-        _legs = new HumanBodyPart(maxLegsHp, "legs");
-        _hands = new HumanBodyPart(maxLegsHp, "hands");
+        _head = new HumanBodyPart(maxHeadHp, BodyPartType.Head);
+        _body = new HumanBodyPart(maxBodyHp, BodyPartType.Body);
+        _legs = new HumanBodyPart(maxLegsHp, BodyPartType.Legs);
+        _hands = new HumanBodyPart(maxLegsHp, BodyPartType.Hands);
         _hud = GM.GetComponent<HUD>();
 
         _mastery.IncreaseMastery(WeaponType.Shotgun, 0.3f);
@@ -76,7 +76,7 @@ public class PlayerState : MonoBehaviour
                 break;
         }
 
-        _hud.UpdateBodyPartStatus(bodyType, bodyPart.Status);
+        _hud.UpdateBodyPartStatus(bodyPart.PartType, bodyPart.Status);
     }
 
     private HumanBodyPart GetHumanBodyPart(BodyPartType type)
@@ -85,12 +85,13 @@ public class PlayerState : MonoBehaviour
         {
             case BodyPartType.Head:
                 return _head;
+            // hands & body is a special case. hands could be damaged only if player is aiming right now
             case BodyPartType.Body:
-                return _body;
+            case BodyPartType.Hands:
+                bool isAiming = Input.GetMouseButton(1);
+                return isAiming ? _hands : _body;
             case BodyPartType.Legs:
                 return _legs;
-            case BodyPartType.Hands:
-                return _hands;
             default:
                 Debug.LogWarning("Unknown body type");
                 return null;
