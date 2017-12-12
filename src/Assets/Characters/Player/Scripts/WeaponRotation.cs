@@ -17,7 +17,6 @@ public class WeaponRotation : MonoBehaviour
         _mainCharacterMovement = GetComponentInParent<MainCharacterMovementControl>();
         _player = GetComponentInParent<PlayerState>();
         if (_mainCharacterMovement == null)
-
         {
             Debug.LogError("Character movement is missing");
         }

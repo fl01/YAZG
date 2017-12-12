@@ -57,8 +57,10 @@ public class WeaponFireControl : MonoBehaviour
         var facingRight = _player.GetComponent<MainCharacterMovementControl>().facingRight;
         if (!facingRight)
         {
-
+            // rotate bullet towards left
+            bullet.localScale *= -1;
         }
+
         var speed = _player.ActiveWeapon.Bullet.Shotspeed;
         bullet.GetComponent<Rigidbody2D>().AddForce((muzzle.position - bore.position) * speed);
     }
