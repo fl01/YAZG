@@ -9,11 +9,14 @@ public class PlayerState : MonoBehaviour
     private HUD _hud;
     private WeaponMastery _mastery = new WeaponMastery();
     private Weapon _activeWeapon = new Weapon() { Damage = 3, RateOfFire = 0.25f };
+    private AudioSource _audioSource;
 
     public GameObject GM;
     public int maxHeadHp = 2;
     public int maxBodyHp = 2;
     public int maxLegsHp = 2;
+    public int maxHandsHp = 2;
+    public AudioClip[] audioClips;
 
     public WeaponMastery Mastery
     {
@@ -30,8 +33,10 @@ public class PlayerState : MonoBehaviour
         _head = new HumanBodyPart(maxHeadHp, BodyPartType.Head);
         _body = new HumanBodyPart(maxBodyHp, BodyPartType.Body);
         _legs = new HumanBodyPart(maxLegsHp, BodyPartType.Legs);
-        _hands = new HumanBodyPart(maxLegsHp, BodyPartType.Hands);
+        _hands = new HumanBodyPart(maxHandsHp, BodyPartType.Hands);
         _hud = GM.GetComponent<HUD>();
+
+        _audioSource = GetComponent<AudioSource>();
 
         _mastery.IncreaseMastery(WeaponType.Shotgun, 0.3f);
     }
@@ -50,17 +55,19 @@ public class PlayerState : MonoBehaviour
     {
         // character is dead
         Debug.Log(name + " character is dead");
+        PlayDeadSound();
     }
 
     public void OnBodyPartDamaged(HumanBodyPart humanBodyPart)
     {
         // character is injured
         Debug.Log(name + " character is injured");
+        PlayHitSound();
     }
 
     public void TakeDamage(BodyPartType bodyType, int damage)
     {
-        var bodyPart = GetHumanBodyPart(bodyType);
+        var bodyPart = GetHumanBodyPartToTakeDamage(bodyType);
         bodyPart.TakeDamage(damage);
         switch (bodyPart.Status)
         {
@@ -79,7 +86,7 @@ public class PlayerState : MonoBehaviour
         _hud.UpdateBodyPartStatus(bodyPart.PartType, bodyPart.Status);
     }
 
-    private HumanBodyPart GetHumanBodyPart(BodyPartType type)
+    private HumanBodyPart GetHumanBodyPartToTakeDamage(BodyPartType type)
     {
         switch (type)
         {
@@ -96,5 +103,17 @@ public class PlayerState : MonoBehaviour
                 Debug.LogWarning("Unknown body type");
                 return null;
         }
+    }
+
+    private void PlayHitSound()
+    {
+        _audioSource.clip = audioClips[0];
+        _audioSource.Play();
+    }
+
+    private void PlayDeadSound()
+    {
+        _audioSource.clip = audioClips[1];
+        _audioSource.Play();
     }
 }
