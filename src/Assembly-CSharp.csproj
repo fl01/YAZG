@@ -43,7 +43,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="UnityEngine">
+   <Reference Include="UnityEngine">
       <HintPath>%UnityFolder%/Editor/Data/Managed\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
@@ -51,9 +51,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\HUD.cs" />
-     <Compile Include="Assets\MainCharacterControl.cs" />
-     <Compile Include="Assets\MainCharacterMovementControl.cs" />
+     <Compile Include="Assets\Characters\Common\Scripts\AudioManager.cs" />
+     <Compile Include="Assets\Characters\Common\Scripts\BodyPartStatus.cs" />
+     <Compile Include="Assets\Characters\Common\Scripts\BodyPartType.cs" />
+     <Compile Include="Assets\Characters\Common\Scripts\HumanBodyPart.cs" />
+     <Compile Include="Assets\Characters\Player\Scripts\BodyPartCollisionDamage.cs" />
+     <Compile Include="Assets\Characters\Player\Scripts\ItemPickupControl.cs" />
+     <Compile Include="Assets\Characters\Player\Scripts\MainCharacterControl.cs" />
+     <Compile Include="Assets\Characters\Player\Scripts\MainCharacterMovementControl.cs" />
+     <Compile Include="Assets\Characters\Player\Scripts\PlayerBullet.cs" />
+     <Compile Include="Assets\Characters\Player\Scripts\PlayerState.cs" />
+     <Compile Include="Assets\Characters\Player\Scripts\PlayerWeapon.cs" />
+     <Compile Include="Assets\Characters\Player\Scripts\WeaponFireControl.cs" />
+     <Compile Include="Assets\Characters\Player\Scripts\WeaponMastery.cs" />
+     <Compile Include="Assets\Characters\Player\Scripts\WeaponRotation.cs" />
+     <Compile Include="Assets\Common\Scripts\DestroyAfter.cs" />
+     <Compile Include="Assets\Environment\Pickups\Scripts\PickupableItem.cs" />
+     <Compile Include="Assets\GameMaster\SpamArrow.cs" />
+     <Compile Include="Assets\Interface\Scripts\HUD.cs" />
      <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
      <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
      <Compile Include="Assets\SampleScenes\Menu\Scripts\SceneAndURLLoader.cs" />
@@ -62,19 +77,10 @@
      <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
      <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
      <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
-     <Compile Include="Assets\Scripts\ProjectilePhysics.cs" />
-     <Compile Include="Assets\Scripts\WeaponControl.cs" />
-     <Compile Include="Assets\SpamArrow.cs" />
-     <Compile Include="Assets\StateScripts\BodyPartCollisionDamage.cs" />
-     <Compile Include="Assets\StateScripts\BodyPartDamage.cs" />
-     <Compile Include="Assets\StateScripts\BodyPartStatus.cs" />
-     <Compile Include="Assets\StateScripts\BodyPartType.cs" />
-     <Compile Include="Assets\StateScripts\HumanBodyPart.cs" />
-     <Compile Include="Assets\StateScripts\Player\PlayerState.cs" />
-     <Compile Include="Assets\StateScripts\Player\WeaponMastery.cs" />
-     <Compile Include="Assets\Weapon.cs" />
-     <Compile Include="Assets\WeaponRotation.cs" />
-     <Compile Include="Assets\WeaponType.cs" />
+     <Compile Include="Assets\Weapons\BodyPartDamage.cs" />
+     <Compile Include="Assets\Weapons\BulletStats.cs" />
+     <Compile Include="Assets\Weapons\WeaponStats.cs" />
+     <Compile Include="Assets\Weapons\WeaponType.cs" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />
      <None Include="Assets\Standard Assets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
@@ -109,7 +115,7 @@
      <None Include="Assets\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularDisplacement.shader" />
      <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
  <Reference Include="UnityEngine.UI">
- <HintPath>%UnityFolder%/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+  <HintPath>%UnityFolder%/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>%UnityFolder%/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>

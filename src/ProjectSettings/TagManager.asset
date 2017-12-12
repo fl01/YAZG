@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fire
   - Enemy
+  - WeaponPickup
   layers:
   - Default
   - TransparentFX
@@ -37,7 +38,7 @@ TagManager:
   - 
   - 
   - 
-  - HUD
+  - 
   - 
   m_SortingLayers:
   - name: Default
