@@ -1670,7 +1670,7 @@ MonoBehaviour:
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294967039
   facingRight: 1
 --- !u!114 &1885466055
 MonoBehaviour:
