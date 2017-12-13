@@ -34,8 +34,6 @@ public class WeaponFireControl : MonoBehaviour
             return;
         }
 
-        Debug.Log("");
-
         if (_ctime > _shootCooldown)
         {
             ShootBullet();
