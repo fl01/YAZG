@@ -11,4 +11,6 @@ public class PlayerWeapon
     public Sprite Sprite { get; set; }
 
     public PlayerBullet Bullet { get; set; }
+
+    public AudioClip FireSound { get; set; }
 }

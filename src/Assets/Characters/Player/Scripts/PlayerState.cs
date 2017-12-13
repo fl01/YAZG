@@ -11,11 +11,8 @@ public class PlayerState : MonoBehaviour
     private GameObject _weaponGameObject;
     private HUD _hud;
     private WeaponMastery _mastery = new WeaponMastery();
-
     private PlayerWeapon _activeWeapon = null;
     private List<PlayerWeapon> _weapons = new List<PlayerWeapon>();
-
-    private AudioSource _audioSource;
     private AudioManager _audioManager;
 
     public GameObject GM;
@@ -43,8 +40,6 @@ public class PlayerState : MonoBehaviour
         _weaponGameObject = transform.Find("Hands").Find("Weapon").gameObject;
 
         _hud = GM.GetComponent<HUD>();
-
-        _audioSource = GetComponent<AudioSource>();
         _audioManager = GetComponent<AudioManager>();
 
         _mastery.IncreaseMastery(WeaponType.Shotgun, 0.3f);
@@ -81,14 +76,14 @@ public class PlayerState : MonoBehaviour
     {
         // character is dead
         Debug.Log(name + " character is dead");
-        _audioManager.PlayDeathSound(_audioSource);
+        _audioManager.PlayDeathSound();
     }
 
     public void OnBodyPartDamaged(HumanBodyPart humanBodyPart)
     {
         // character is injured
         Debug.Log(name + " character is injured");
-        _audioManager.PlayHitSound(_audioSource);
+        _audioManager.PlayHitSound();
     }
 
     public void TakeDamage(BodyPartType bodyType, int damage)
@@ -121,6 +116,7 @@ public class PlayerState : MonoBehaviour
             // hands & body is a special case. hands could be damaged only if player is aiming right now
             case BodyPartType.Body:
             case BodyPartType.Hands:
+                // TODO : read from somewhere(maincharactercontrol?) IsAiming
                 bool isAiming = Input.GetMouseButton(1);
                 return isAiming ? _hands : _body;
             case BodyPartType.Legs:

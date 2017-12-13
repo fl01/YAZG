@@ -25,6 +25,7 @@ public class ItemPickupControl : MonoBehaviour
                 RateOfFire = weaponStats.rateOfFire,
                 WeaponType = weaponStats.weaponType,
                 Sprite = weaponStats.sprite,
+                FireSound = weaponStats.fireSound,
                 Bullet = new PlayerBullet()
                 {
                     Damage = bulletStats.damage,

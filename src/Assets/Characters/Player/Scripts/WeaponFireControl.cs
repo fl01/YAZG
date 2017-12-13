@@ -11,7 +11,7 @@ public class WeaponFireControl : MonoBehaviour
     void Awake()
     {
         _player = GetComponentInParent<PlayerState>();
-        _playerAudioManager = GetComponent<AudioManager>();
+        _playerAudioManager = GetComponentInParent<AudioManager>();
     }
 
     // Use this for initialization
@@ -40,10 +40,7 @@ public class WeaponFireControl : MonoBehaviour
         {
             ShootBullet();
             _shootCooldown = _ctime + _player.ActiveWeapon.RateOfFire;
-
-            //TODO: add audio source
-            //var asrc = GetComponent<AudioSource>();
-            //if (asrc != null) asrc.Play();
+            _playerAudioManager.Play(_player.ActiveWeapon.FireSound);
         }
     }
 

@@ -155,6 +155,7 @@ MonoBehaviour:
   rateOfFire: 0.1
   weaponType: 0
   sprite: {fileID: 21300000, guid: c50f99d1d2e4ae4488eee4035142c68a, type: 3}
+  fireSound: {fileID: 8300000, guid: f81ebe5260c7f094a9a031e7f2b42c30, type: 3}
 --- !u!114 &114957674916665154
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -2,18 +2,29 @@
 
 public class AudioManager : MonoBehaviour
 {
+    private AudioSource _source;
+
     public AudioClip hitSound;
     public AudioClip deathSound;
 
-    public void PlayHitSound(AudioSource source)
+    void Awake()
     {
-        source.clip = hitSound;
-        source.Play();
+        _source = GetComponent<AudioSource>();
     }
 
-    public void PlayDeathSound(AudioSource source)
+    public void PlayHitSound()
     {
-        source.clip = deathSound;
-        source.Play();
+        Play(hitSound);
+    }
+
+    public void PlayDeathSound()
+    {
+        Play(deathSound);
+    }
+
+    public void Play(AudioClip sound)
+    {
+        _source.clip = sound;
+        _source.Play();
     }
 }

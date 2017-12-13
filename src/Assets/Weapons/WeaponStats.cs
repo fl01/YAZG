@@ -6,4 +6,5 @@ public class WeaponStats : MonoBehaviour
     public float rateOfFire;
     public WeaponType weaponType;
     public Sprite sprite;
+    public AudioClip fireSound;
 }

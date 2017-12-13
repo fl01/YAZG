@@ -481,7 +481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyAfterInSeconds: 10
---- !u!1001 &684341785
+--- !u!1001 &630506560
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -490,11 +490,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4175765185272566, guid: 2521e44ff42a20846afcdf639c1acb34, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -17.472916
+      value: -15.983509
       objectReference: {fileID: 0}
     - target: {fileID: 4175765185272566, guid: 2521e44ff42a20846afcdf639c1acb34, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.67655677
+      value: -0.65942836
       objectReference: {fileID: 0}
     - target: {fileID: 4175765185272566, guid: 2521e44ff42a20846afcdf639c1acb34, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1390,7 +1390,7 @@ RectTransform:
   m_GameObject: {fileID: 1587386235}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 100}
-  m_LocalScale: {x: 0.054968998, y: 0.054968998, z: 0.054968998}
+  m_LocalScale: {x: 0.052998003, y: 0.052998003, z: 0.052998003}
   m_Children:
   - {fileID: 1902951815}
   - {fileID: 1623081520}
